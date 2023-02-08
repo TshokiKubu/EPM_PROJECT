@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<doc>
+  <assembly>
+    <name> EPM.API</name>
+  </assembly>
+  <members>
+    <member name="M: EPM.API.Controllers.ClientsController.GetClients">
+      <summary>
+        Get list of Clients.
+      </summary>
+      <returns></returns>
+    </member>
+    <member name="M: EPM.API.Controllers.ClientsController.GetClient(System.Int32)">
+      <summary>
+        Get individual Client
+      </summary>
+      <param name="ID"> The ID of the Client </param>
+      <returns></returns>
+    </member>
+  </members>
+  <member name="M: EPM.API.Controllers.DashboardController.CountNoOfUsers(string)">
+    <summary>
+      Get Count Number Of Users
+    </summary>   
+    <returns></returns>
+  </member>
+  <member name="M: EPM.API.Controllers.DashboardController.GetCountNoOfClientsPerDate(datetime)">
+    <summary>
+      Get Count Number Of Clients Per Date
+    </summary>
+    <returns></returns>
+  </member>
+  <member name="M: EPM.API.Controllers.DashboardController.GetCountNoOfUsersOverallClients()">
+    <summary>
+      Get Count Number Of Users Overall Clients
+    </summary>
+    <returns></returns>
+  </member>
+</doc>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33130.400
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.API", "EPMAPI\EPM.API.csproj", "{877382CD-1937-4820-9487-FF6BABA11113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EPM.WEB", "EPMWEB\EPM.WEB.csproj", "{C2067140-487D-46FA-BD3D-FCBFB2F24D31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{877382CD-1937-4820-9487-FF6BABA11113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877382CD-1937-4820-9487-FF6BABA11113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877382CD-1937-4820-9487-FF6BABA11113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877382CD-1937-4820-9487-FF6BABA11113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2067140-487D-46FA-BD3D-FCBFB2F24D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2067140-487D-46FA-BD3D-FCBFB2F24D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2067140-487D-46FA-BD3D-FCBFB2F24D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2067140-487D-46FA-BD3D-FCBFB2F24D31}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8294FEE5-7AD8-4763-A1E6-57C1847E7E50}
+	EndGlobalSection
+EndGlobal
