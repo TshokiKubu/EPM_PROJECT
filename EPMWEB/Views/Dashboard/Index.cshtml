@@ -1,5 +1,65 @@
-﻿// Access the data in the ViewBag in the view
-<h1>Dashboard</h1>
-<p>@ViewBag.DashboardData.TotalUsersPerLocation</p>
-<p>@ViewBag.DashboardData.TotalUsersOverallClients</p>
-<p>@ViewBag.DashboardData.TotalClientsPerDate</p>
+﻿
+<div class="text-center">
+    <div class="jumbotron mt-1">
+        <h1 class="display-4">AdaptIT EPM Dashboard</h1>
+
+        <section id="dashboard" style="align-self:center">
+            &nbsp;&nbsp;
+            <div class="row w-100 pt-5">
+
+                <div class="col-md-6 col-sm-12 text-light pr-0">
+                    <div class="small-box bg-warning rounded-3">
+                        <div class="inner">
+                            <h3 id="UsersCountPerLoc">...</h3>
+                            <p>
+                                Total Users - Per Location
+                                <div class="small">
+                                    &nbsp;
+                                    <label>
+
+                                    </label>
+                                </div>
+                            </p>
+
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <a asp-controller="Dashboard"
+                           asp-action="Index"
+                           class="small-box-footer text-light">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-sm-12 text-light pr-0">
+                    <div class="small-box bg-success rounded-3">
+                        <div class="inner">
+                            <h3 id="CountOvarallClients">...</h3>
+                            <p>
+
+                                Total Users - Overall Clients
+                                <div class="small">
+                                    &nbsp;
+                                    <label>
+                                        @ViewBag.DashboardData
+                                    </label>
+                                </div>
+                            </p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <a asp-controller="Dashboard"
+                           asp-action="Index"
+                           class="small-box-footer text-light">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+    <div class="container">
+        <img src="" class="w-100" />
+    </div>
+</div>

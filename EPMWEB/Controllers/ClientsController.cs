@@ -62,7 +62,7 @@ namespace EPM.WEB.Controllers
         {
             if (ModelState.IsValid)
             {
-                var files = HttpContext.Request.Form.Files;
+             //   var files = HttpContext.Request.Form.Files;
                 
                 if (obj.ID == 0)
                 {

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace EPM.WEB.Models
 {
-    public class DashboardDataModel
+    public class DashboardData
     {
         public int TotalUsersPerLocation { get; set; }
         public int TotalUsersOverallClients { get; set; }

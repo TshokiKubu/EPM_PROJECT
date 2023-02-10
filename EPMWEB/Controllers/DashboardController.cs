@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using EPM.WEB.Models;
 
 
+
 namespace EPM.WEB.Controllers
 {
     public class DashboardController : Controller
@@ -21,64 +22,42 @@ namespace EPM.WEB.Controllers
         }
 
         //[HttpGet]
-        //public IActionResult Index()
-        //{
-        //    return View();
-       // }
-
-        [HttpPost]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
+            var dashboardData = GetDashboardDataFromApi();
+            ViewBag.DashboardData = dashboardData;
+
+            return View();
+        }
+
+
+        private async Task<DashboardData> GetDashboardDataFromApi()
+        {
+            // make api call
+
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(SD.DashboardAPIPath);
-                var response = await client.GetAsync(client.BaseAddress);// "dashboard");
-                response.EnsureSuccessStatusCode();
+                var response = await client.GetAsync(client.BaseAddress + "GetCountNoOfUsersOverallClients");
 
-                var data = await response.Content.ReadAsStringAsync();
+                if (response.IsSuccessStatusCode)
+                {
+                   
+                    var dashboardData = await response.Content.ReadAsStringAsync();
+                    ViewBag.DashboardData = dashboardData;
 
-                // Store the data in a ViewBag object
-                ViewBag.DashboardData = data;
-
-                return Ok(data);
+                    //   ViewBag.DashboardData = dashboardData.TotalUsersOverallClients;
+                    // ViewBag.DashboardData = dashboardData.TotalClientsPerDate;
+                    // ViewBag.DashboardData = dashboardData.TotalUsersPerLocation;
+                    return ViewBag.DashboardData;
+                }
+                else
+                {
+                    // handle error
+                    throw new Exception("Failed to retrieve dashboard data from API");
+                }
             }
-          
         }
-
-        //public async Task<IActionResult> Index(DateTime date, string loc, int num)
-        //{
-        //    // string loc = "";
-        //  //  ViewBag.CountNoOfClientsPerDateAPI = _httpClientFactory.GetCountNoOfClientsPerDate(date);
-        //  //  ViewBag.CountNoOfUsersOverallClientsAPI = _httpClientFactory.GetCountNoOfUsersOverallClients(num);
-        //  //  ViewBag.CountNoOfUsersPerLocationAPI = _httpClientFactory.GetCountNoOfUsersPerLocation(loc);
-
-
-
-        //    var client = _httpClientFactory.CreateClient(SD.DashboardAPIPath);     //("dashboardApi");
-        //    var response = await client.GetAsync("CountNoOfUsers");
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        var content = await response.Content.ReadAsStringAsync();
-        //        var dashboardData = JsonConvert.DeserializeObject<DashboardDataModel>(content);
-
-
-
-        //      //  ViewBag.Date = date;
-        //      //  ViewBag.Location = loc;
-        //      //  ViewBag.OverallUsersClients = num;
-
-        //        ViewBag.Dashboard = dashboardData;
-
-
-
-        //        return View(dashboardData);
-        //    }
-        //    else
-        //    {
-        //        return View("Error");
-        //    }
-
-        //}
+               
     }
 }

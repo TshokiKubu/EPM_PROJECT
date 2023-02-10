@@ -30,7 +30,7 @@ namespace EPM.WEB.Controllers
             _clientsRepo = clientsRepo;
         }
 
-
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             IndexVM listOfClients = new IndexVM()

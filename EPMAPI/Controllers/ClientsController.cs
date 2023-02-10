@@ -45,12 +45,12 @@ namespace EPMAPI.Controllers
             return Ok(objDto);
         }
 
-        [HttpGet(Name = "GetClients")]
+        [HttpGet]//(Name = "GetClients")]
         [ProducesResponseType(200, Type = typeof(List<ClientDto>))]
-        [ProducesResponseType(404)]
+       // [ProducesResponseType(404)]
        // [Authorize]
-        [AllowAnonymous]
-        [ProducesDefaultResponseType]
+       // [AllowAnonymous]
+       // [ProducesDefaultResponseType]
         public IActionResult GetClients()
         {
             var objList = _clientsRepo.GetClients();
@@ -85,7 +85,7 @@ namespace EPMAPI.Controllers
                 ModelState.AddModelError("", $"Something went wrong when saving the record {contactObj.ClientName}");
                 return StatusCode(500, ModelState);
             }
-            return CreatedAtRoute("GetContact", new { ID = contactObj.ID }, contactObj);
+            return CreatedAtRoute("GetClient", new { ID = contactObj.ID }, contactObj);
         }
 
 

@@ -33,10 +33,10 @@ namespace EPM.API.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate([FromBody] AuthenticationModel model)
         {
-            var user = _userRepo.Authenticate(model.Email, model.Password);
+            var user = _userRepo.Authenticate(model.Username, model.Password);
             if (user == null)
             {
-                return BadRequest(new { message = "Email or password is incorrect" });
+                return BadRequest(new { message = "Email/username or password is incorrect" });
             }
             return Ok(user);
         }
@@ -45,12 +45,12 @@ namespace EPM.API.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] AuthenticationModel model)
         {
-            bool ifUserNameUnique = _userRepo.IsUniqueUser(model.Email);
+            bool ifUserNameUnique = _userRepo.IsUniqueUser(model.Username);
             if (!ifUserNameUnique)
             {
                 return BadRequest(new { message = "Email already exists" });
             }
-            var user = _userRepo.Register(model.Email, model.Password, model.Username);
+            var user = _userRepo.Register(model.Username, model.Password, model.Password);
 
             if (user == null)
             {

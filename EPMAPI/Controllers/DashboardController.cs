@@ -11,9 +11,8 @@ using System;
 
 namespace EPMAPI.Controllers
 {
-    [Authorize]
-    [Route("api/v{version:apiVersion}/dashboard")]
-   // [Route("api/[controller]")]
+   
+    [Route("api/v{version:apiVersion}/dashboard")]  
     [ApiController]
     public class DashboardController : ControllerBase
     {
@@ -24,39 +23,27 @@ namespace EPMAPI.Controllers
         {
             _clientsRepo = clientsRepo;
             _mapper = mapper;
-
         }
 
-
-
-        [HttpGet("{loc:alpha}",Name = "CountNoOfUsers")]
-       // [ProducesResponseType(200, Type = typeof(List<ClientDto>))]
-       // [ProducesResponseType(404)]
-        // [Authorize]
-        [AllowAnonymous]
-      //  [ProducesDefaultResponseType]
+        [HttpGet("{loc:alpha}",Name = "CountNoOfUsers")]      
+        [AllowAnonymous]     
         public IActionResult CountNoOfUsers(string loc)
         {
             var obj = _clientsRepo.GetCountNoOfUsersPerLocation(loc);
             if (obj == 0)
             {
                 return NotFound();
-            }
-            // var objDto = _mapper.Map<ClientDto>(obj);
-
+            }           
             return Ok(obj);
-
         }
 
         [HttpGet("GetCountNoOfUsersOverallClients")]
         [AllowAnonymous]
-        public IActionResult GetCountNoOfUsersOverallClients()//int num)
+        public IActionResult GetCountNoOfUsersOverallClients()
         {
             var objDto = _clientsRepo.GetCountNoOfUsersOverallClients();
             return Ok(objDto);
         }
-
-
 
         [HttpGet("{date:DateTime}", Name = "GetCountNoOfClientsPerDate")]
         [AllowAnonymous]      
@@ -65,7 +52,5 @@ namespace EPMAPI.Controllers
             int objDto = _clientsRepo.GetCountNoOfClientsPerDate(date);
             return Ok(objDto);
         }
-
-
     }
 }
