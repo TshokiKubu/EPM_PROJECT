@@ -25,9 +25,9 @@ namespace EPM.API.Repository
             _appSettings = appsettings.Value;
         }
 
-        public Users Authenticate(string email, string password)
+        public Users Authenticate(string username, string password)
         {
-            var user = _db.Users.SingleOrDefault(x => x.Email == email && x.Password == password);
+            var user = _db.Users.SingleOrDefault(x => x.Username == username && x.Password == password);
 
             //user not found
             if (user == null)
@@ -66,12 +66,12 @@ namespace EPM.API.Repository
             return false;
         }
 
-        public Users Register(string email, string password, string username)
+        public Users Register(string username, string password)
         {
             Users userObj = new Users()
             {
                 Username = username,
-                Email = email,
+             //   Email = email,
                 Password = password,
                 Role = "Admin"
             };

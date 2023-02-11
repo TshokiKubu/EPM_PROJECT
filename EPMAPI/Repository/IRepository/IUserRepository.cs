@@ -16,8 +16,8 @@ namespace EPM.API.Repository.IRepository
     public interface IUserRepository
     {
         bool IsUniqueUser(string email);
-        Users Authenticate(string email, string password);
-        Users Register(string email, string password, string username);       
+        Users Authenticate(string username, string password);
+        Users Register(string username, string password);       
     }
 }
 

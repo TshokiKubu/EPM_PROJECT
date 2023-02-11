@@ -50,7 +50,7 @@ namespace EPM.API.Controllers
             {
                 return BadRequest(new { message = "Email already exists" });
             }
-            var user = _userRepo.Register(model.Username, model.Password, model.Password);
+            var user = _userRepo.Register(model.Username, model.Password);
 
             if (user == null)
             {

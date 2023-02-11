@@ -34,27 +34,27 @@ namespace EPM.WEB.Controllers
         }
 
 
+
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Upsert(int? id)
         {
-            IEnumerable<Client> clRepo = await _clRepo.GetAllAsync(SD.ClientAPIPath, HttpContext.Session.GetString("JWToken"));
+            Client obj = new Client();
 
-            Client objVM = new Client();
-            
             if (id == null)
             {
                 //this will be true for Insert/Create
-                return View(objVM);
+                return View(obj);
             }
 
             //Flow will come here for update
-            objVM = await _clRepo.GetAsync(SD.ClientAPIPath, id.GetValueOrDefault(), HttpContext.Session.GetString("JWToken"));
-            if (objVM == null)
+            obj = await _clRepo.GetAsync(SD.ClientAPIPath, id.GetValueOrDefault(), HttpContext.Session.GetString("JWToken"));
+            if (obj == null)
             {
                 return NotFound();
             }
-            return View(objVM);
+            return View(obj);
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
