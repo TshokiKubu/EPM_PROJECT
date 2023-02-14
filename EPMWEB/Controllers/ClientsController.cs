@@ -28,7 +28,7 @@ namespace EPM.WEB.Controllers
             return View(new Client() { });
         }
 
-        public async Task<IActionResult> GetAllClients()
+        public async Task<JsonResult> GetAllClients()
         {
             return Json(new { data = await _clRepo.GetAllAsync(SD.ClientAPIPath, HttpContext.Session.GetString("JWToken")) });
         }

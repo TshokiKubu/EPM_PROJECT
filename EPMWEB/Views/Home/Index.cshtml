@@ -24,7 +24,7 @@
                                         <div class="col-12">
                                             @if (Model.ClientList.Where(u => u.ID == client.ID).Count() > 0)
                                             {
-                                                <table class="table table-striped" style="border:1px solid #808080 ">
+                                                <table id="tblData"  class="table table-striped" style="border:1px solid #808080 ">
                                                     <tr class="table-secondary">
                                                         
                                                         <th>Client Name</th>

@@ -12,10 +12,10 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "clientname", "width": "50%" },
-            { "data": "location", "width": "50%" },
+            { "data": "clientname", "width": "20%" },
+            { "data": "location", "width": "10%" },
             { "data": "numberofusers", "width": "20%" },
-            { "data": "createdon", "width": "20%" },
+            { "data": "createdon", "width": "15%" },
             {
                 "data": "id",
                 "render": function (data) {
