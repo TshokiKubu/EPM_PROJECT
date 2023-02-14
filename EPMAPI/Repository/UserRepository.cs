@@ -66,12 +66,12 @@ namespace EPM.API.Repository
             return false;
         }
 
-        public Users Register(string username, string password)
+        public Users Register(string username, string password, string email)
         {
             Users userObj = new Users()
             {
                 Username = username,
-             //   Email = email,
+                Email = email,
                 Password = password,
                 Role = "Admin"
             };

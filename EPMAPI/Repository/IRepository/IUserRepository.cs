@@ -17,7 +17,7 @@ namespace EPM.API.Repository.IRepository
     {
         bool IsUniqueUser(string email);
         Users Authenticate(string username, string password);
-        Users Register(string username, string password);       
+        Users Register(string username, string password, string email);       
     }
 }
 

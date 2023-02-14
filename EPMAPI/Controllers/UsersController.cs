@@ -43,14 +43,14 @@ namespace EPM.API.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register([FromBody] AuthenticationModel model)
+        public IActionResult Register([FromBody] Users model)
         {
             bool ifUserNameUnique = _userRepo.IsUniqueUser(model.Username);
             if (!ifUserNameUnique)
             {
                 return BadRequest(new { message = "Email already exists" });
             }
-            var user = _userRepo.Register(model.Username, model.Password);
+            var user = _userRepo.Register(model.Username, model.Password, model.Email);
 
             if (user == null)
             {
